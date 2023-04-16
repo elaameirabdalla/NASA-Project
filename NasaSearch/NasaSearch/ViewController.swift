@@ -9,6 +9,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // MARK: Fields
     
+    // Outlets
     @IBOutlet weak var textField: UITextField! {
         didSet {
             textField.attributedPlaceholder = NSAttributedString(string: "Search here")
@@ -17,8 +18,17 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var tableView: UITableView!
     
-    // var results: [***] = []
-        
+    let apiHelper = APIHelper()
+    var currentPage: Int = 1
+    var lastSearched: String = ""
+    
+    var searchResults: [APIHelper.SearchResult] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     // MARK: Functions
     override func viewDidLoad() {
@@ -29,27 +39,58 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         textField.delegate = self
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // Should also clear currently presented results for new results to load in
+     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let text = textField.text, !text.isEmpty {
-            // Call API here with text
+            apiHelper.getResults(search: text, pageNumber: currentPage, mediaType: "image", pageLimit: nil) { success, data in
+                if let data = data, success {
+                    self.searchResults = self.apiHelper.handleData(data: data)
+                    self.currentPage += 1
+                    self.lastSearched = text
+                }
+                else {
+                    //error??
+                }
+            }
         }
         return true
     }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // arbitrary number for now, will change to be based on number of search results per page
-        
-        // return results.count
-        return 50
+        return searchResults.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100.0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Will change to be custom cell to show wanted information
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultCell", for: indexPath) as! SearchResultCell
+        cell.tag = indexPath.row
+        let resultForCell = searchResults[indexPath.row]
+        
+        
+        cell.configureCell(href: resultForCell.href, title: resultForCell.title, description: resultForCell.description, index: indexPath.row)
+        
+        return cell
     }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        // handle pagination??
+        
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if ((scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height + 100) {
+            // Increment current page by 1, call api, APPEND to searchResults, reloadTableView
+            apiHelper.getResults(search: lastSearched, pageNumber: currentPage, mediaType: "image", pageLimit: nil) { success, data in
+                if let data = data, success {
+                    self.searchResults.append(contentsOf: self.apiHelper.handleData(data: data))
+                    self.currentPage += 1
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }
+                else {
+                    //error??
+                }
+            }
+        }
     }
     
 }

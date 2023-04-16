@@ -17,6 +17,7 @@
 		B362E2B129EA3FE6009FED32 /* NasaSearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B362E2B029EA3FE6009FED32 /* NasaSearchUITests.swift */; };
 		B362E2B329EA3FE6009FED32 /* NasaSearchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B362E2B229EA3FE6009FED32 /* NasaSearchUITestsLaunchTests.swift */; };
 		B362E2C029EA4827009FED32 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B362E2BF29EA4827009FED32 /* APIHelper.swift */; };
+		B362E2C629EB6A77009FED32 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B362E2C529EB6A77009FED32 /* SearchResultCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		B362E2B029EA3FE6009FED32 /* NasaSearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaSearchUITests.swift; sourceTree = "<group>"; };
 		B362E2B229EA3FE6009FED32 /* NasaSearchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaSearchUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B362E2BF29EA4827009FED32 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
+		B362E2C529EB6A77009FED32 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				B362E29829EA3FE5009FED32 /* Assets.xcassets */,
 				B362E29A29EA3FE5009FED32 /* LaunchScreen.storyboard */,
 				B362E29D29EA3FE5009FED32 /* Info.plist */,
+				B362E2C529EB6A77009FED32 /* SearchResultCell.swift */,
 			);
 			path = NasaSearch;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				B362E29029EA3FE5009FED32 /* AppDelegate.swift in Sources */,
 				B362E29229EA3FE5009FED32 /* SceneDelegate.swift in Sources */,
 				B362E2C029EA4827009FED32 /* APIHelper.swift in Sources */,
+				B362E2C629EB6A77009FED32 /* SearchResultCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

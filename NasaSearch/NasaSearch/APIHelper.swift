@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class APIHelper {
     
@@ -57,10 +58,17 @@ class APIHelper {
           let href: String
       }
     
-    struct SearchResult {
+    // Data model for Search results
+    public struct SearchResult {
         let href: String
         let title: String
         let description: String
+        
+        init(href: String, title: String, description: String) {
+            self.href = href
+            self.title = title
+            self.description = description
+        }
     }
     
       public init() {}
@@ -93,11 +101,18 @@ class APIHelper {
           task.resume()
       }
 
-      private func handleData(data: Data) -> [SearchResult] {
+      public func handleData(data: Data) -> [SearchResult] {
           let decoder = JSONDecoder()
           let root = try? decoder.decode(Root.self, from: data)
-          return []
-
+          
+          guard let root = root else {
+              return []
+          }
+          let results = root.collection.items.map {
+              return SearchResult(href: $0.links[0].href, title: $0.data[0].title, description: $0.data[0].description)
+          }
+          
+          return results
       }
     
 }
