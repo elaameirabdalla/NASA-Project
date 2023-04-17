@@ -11,7 +11,7 @@
         <!--Search View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="NasaSearch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchViewController" id="BYZ-38-t0r" customClass="SearchViewController" customModule="NasaSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -62,6 +62,7 @@
                                                 <constraint firstItem="kLv-ia-PPY" firstAttribute="top" secondItem="gPs-wZ-zzf" secondAttribute="bottom" constant="8" symbolic="YES" id="yaL-sA-Izw"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration" identifier="searchResultCell"/>
                                         <connections>
                                             <outlet property="descriptionLabel" destination="kLv-ia-PPY" id="yVZ-bL-3eb"/>
                                             <outlet property="rowImageView" destination="RKj-pp-rhu" id="02m-qo-hSV"/>

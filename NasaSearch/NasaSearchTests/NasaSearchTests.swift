@@ -10,27 +10,56 @@ import XCTest
 
 final class NasaSearchTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+    func testAPIHelperWithValidSearchTerm() throws {
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
+        let apiHelper = NASAAPIHelper()
+        let successExpectation = expectation(description: "data")
+        var resultData: Data = Data()
+        var results: [NASAAPIHelper.SearchResult]
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        // Testing endpoint call and allowing results to load with expectation
+        apiHelper.getNASAImageSearchResults(search: "Stars", pageNumber: 1, mediaType: "image", pageLimit: nil) { success, data in
+            if success, let fetchedData = data {
+                // fulfill expectation upon result and set data if succeeded
+                resultData = fetchedData
+                successExpectation.fulfill()
+            }
+            else {
+                XCTAssertFalse(success)
+                successExpectation.fulfill()
+            }
         }
+        waitForExpectations(timeout: 5)
+        // Assert results array contains values; meaning data has been transformed properly
+        results = apiHelper.handleData(data: resultData)
+        XCTAssertTrue(!results.isEmpty)
     }
+    
+    func testAPIHelperWithInvalidSearchTerm() throws {
+
+        let apiHelper = NASAAPIHelper()
+        let successExpectation = expectation(description: "data")
+        var resultData: Data = Data()
+        var results: [NASAAPIHelper.SearchResult]
+
+        // Testing endpoint call and allowing results to load with expectation
+        apiHelper.getNASAImageSearchResults(search: "qwrgwh", pageNumber: 1, mediaType: "image", pageLimit: nil) { success, data in
+            if success, let fetchedData = data {
+                // fulfill expectation upon result and set data if succeeded
+                resultData = fetchedData
+                successExpectation.fulfill()
+            }
+            else {
+                XCTAssertFalse(success)
+                successExpectation.fulfill()
+            }
+        }
+        waitForExpectations(timeout: 5)
+        // Assert results array contain no values; meaning call fetched no results as expected
+        results = apiHelper.handleData(data: resultData)
+        XCTAssertTrue(results.isEmpty)
+    }
+
 
 }

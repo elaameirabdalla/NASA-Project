@@ -7,33 +7,97 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9C4CBA15-C05A-4555-91FB-F71AC5A21196"
+            uuid = "168F1BD0-6358-44B4-A649-E884B94B6034"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NasaSearch/SearchResultCell.swift"
+            filePath = "NasaSearchUITests/NasaSearchUITests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "configureCell(href:title:description:index:)"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "testSearchPageUI()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "168F1BD0-6358-44B4-A649-E884B94B6034 - a1252e20e08729cf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NasaSearchUITests.NasaSearchUITests.testExample() throws -&gt; ()"
+                  moduleName = "NasaSearchUITests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abdallaelaameir/Desktop/NASA-Project/NasaSearch/NasaSearchUITests/NasaSearchUITests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "1356">
+               </Location>
+               <Location
+                  uuid = "168F1BD0-6358-44B4-A649-E884B94B6034 - a1252e20e08729cf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NasaSearchUITests.NasaSearchUITests.testExample() throws -&gt; ()"
+                  moduleName = "NasaSearchUITests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abdallaelaameir/Desktop/NASA-Project/NasaSearch/NasaSearchUITests/NasaSearchUITests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "1368">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4AADED3A-F2C6-4B43-86AE-C3FD9FAC71F5"
+            uuid = "F61F8306-CD2B-49E2-A769-701DF379544C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NasaSearch/ViewController.swift"
+            filePath = "NasaSearchTests/NasaSearchTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "testAPIHelperWithValue()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F61F8306-CD2B-49E2-A769-701DF379544C - 50bbb3f4547a1f9d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NasaSearchTests.NasaSearchTests.testAPIHelperWithValue() throws -&gt; ()"
+                  moduleName = "NasaSearchTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abdallaelaameir/Desktop/NASA-Project/NasaSearch/NasaSearchTests/NasaSearchTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "656">
+               </Location>
+               <Location
+                  uuid = "F61F8306-CD2B-49E2-A769-701DF379544C - 50bbb3f4547a1f9d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NasaSearchTests.NasaSearchTests.testAPIHelperWithValue() throws -&gt; ()"
+                  moduleName = "NasaSearchTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abdallaelaameir/Desktop/NASA-Project/NasaSearch/NasaSearchTests/NasaSearchTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "660">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

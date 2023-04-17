@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SearchResultCell: UITableViewCell {
     
@@ -20,25 +21,10 @@ class SearchResultCell: UITableViewCell {
         self.descriptionLabel.text = ""
     }
     
-    public func configureCell(href: String, title: String, description: String, index: Int) {
+    public func configureCell(href: String, title: String, description: String) {
         titleLabel.text = title
         descriptionLabel.text = description
-        
-        guard let url = URL(string: href) else {
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
-            guard let data = data, error == nil else {
-                return
-            }
-            DispatchQueue.main.async {
-                let image = UIImage(data: data)
-                if self?.tag == index {
-                    self?.rowImageView.image = image
-                }
-            }
-        }
-        task.resume()
+        // Retrieve and cache image using KingFisher library
+        rowImageView.kf.setImage(with: URL(string: href))
     }
 }

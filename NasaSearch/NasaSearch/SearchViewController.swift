@@ -18,11 +18,12 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var tableView: UITableView!
     
-    let apiHelper = APIHelper()
+    // Variables
+    let apiHelper = NASAAPIHelper()
     var currentPage: Int = 1
     var lastSearched: String = ""
     
-    var searchResults: [APIHelper.SearchResult] = [] {
+    var searchResults: [NASAAPIHelper.SearchResult] = [] {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -36,25 +37,27 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // establish delegates/data source
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.accessibilityIdentifier = "ResultsTable"
         textField.delegate = self
     }
     
-     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Calls api to retrieve search results for searched text when return button is pressed -
+        // will NOT call for empty text
         if let text = textField.text, !text.isEmpty {
-            apiHelper.getResults(search: text, pageNumber: currentPage, mediaType: "image", pageLimit: nil) { success, data in
+            currentPage = 1
+            apiHelper.getNASAImageSearchResults(search: text, pageNumber: currentPage, mediaType: "image", pageLimit: nil) { success, data in
                 if let data = data, success {
+                    // Transform data into expected structure [SearchResults] to load into TableView
                     self.searchResults = self.apiHelper.handleData(data: data)
-                    self.currentPage += 1
+                    // Keep track of next page to be searched as well as last searched term for pagination
                     self.lastSearched = text
-                }
-                else {
-                    //error??
                 }
             }
         }
         return true
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchResults.count
     }
@@ -64,34 +67,34 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Will change to be custom cell to show wanted information
+        // Custom cell to display image, title, and description per searchResult
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultCell", for: indexPath) as! SearchResultCell
-        cell.tag = indexPath.row
+        
+        // Configure cell based on coorelating searchResult at the same index
         let resultForCell = searchResults[indexPath.row]
-        
-        
-        cell.configureCell(href: resultForCell.href, title: resultForCell.title, description: resultForCell.description, index: indexPath.row)
+        cell.configureCell(href: resultForCell.href, title: resultForCell.title, description: resultForCell.description)
         
         return cell
     }
-        
+    
+    // Handles pagination
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if ((scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height + 100) {
+        let dragThreshold = scrollView.contentSize.height + 100
+        let distancedDragged = scrollView.contentOffset.y + scrollView.frame.size.height
+        
+        // if user scrolls beyond last cell (threshold), then call pull results for next page and load
+        if distancedDragged > dragThreshold {
             // Increment current page by 1, call api, APPEND to searchResults, reloadTableView
-            apiHelper.getResults(search: lastSearched, pageNumber: currentPage, mediaType: "image", pageLimit: nil) { success, data in
+            currentPage += 1
+            apiHelper.getNASAImageSearchResults(search: lastSearched, pageNumber: currentPage, mediaType: "image", pageLimit: nil) { success, data in
                 if let data = data, success {
                     self.searchResults.append(contentsOf: self.apiHelper.handleData(data: data))
-                    self.currentPage += 1
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
                 }
-                else {
-                    //error??
-                }
             }
         }
     }
-    
 }
 

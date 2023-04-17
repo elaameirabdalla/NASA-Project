@@ -9,15 +9,16 @@
 /* Begin PBXBuildFile section */
 		B362E29029EA3FE5009FED32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B362E28F29EA3FE5009FED32 /* AppDelegate.swift */; };
 		B362E29229EA3FE5009FED32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B362E29129EA3FE5009FED32 /* SceneDelegate.swift */; };
-		B362E29429EA3FE5009FED32 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B362E29329EA3FE5009FED32 /* ViewController.swift */; };
+		B362E29429EA3FE5009FED32 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B362E29329EA3FE5009FED32 /* SearchViewController.swift */; };
 		B362E29729EA3FE5009FED32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B362E29529EA3FE5009FED32 /* Main.storyboard */; };
 		B362E29929EA3FE5009FED32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B362E29829EA3FE5009FED32 /* Assets.xcassets */; };
 		B362E29C29EA3FE5009FED32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B362E29A29EA3FE5009FED32 /* LaunchScreen.storyboard */; };
 		B362E2A729EA3FE6009FED32 /* NasaSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B362E2A629EA3FE6009FED32 /* NasaSearchTests.swift */; };
 		B362E2B129EA3FE6009FED32 /* NasaSearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B362E2B029EA3FE6009FED32 /* NasaSearchUITests.swift */; };
 		B362E2B329EA3FE6009FED32 /* NasaSearchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B362E2B229EA3FE6009FED32 /* NasaSearchUITestsLaunchTests.swift */; };
-		B362E2C029EA4827009FED32 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B362E2BF29EA4827009FED32 /* APIHelper.swift */; };
+		B362E2C029EA4827009FED32 /* NASAAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B362E2BF29EA4827009FED32 /* NASAAPIHelper.swift */; };
 		B362E2C629EB6A77009FED32 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B362E2C529EB6A77009FED32 /* SearchResultCell.swift */; };
+		B362E2CF29ECFCB0009FED32 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B362E2CE29ECFCB0009FED32 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +42,7 @@
 		B362E28C29EA3FE5009FED32 /* NasaSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NasaSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B362E28F29EA3FE5009FED32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B362E29129EA3FE5009FED32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B362E29329EA3FE5009FED32 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B362E29329EA3FE5009FED32 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		B362E29629EA3FE5009FED32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B362E29829EA3FE5009FED32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B362E29B29EA3FE5009FED32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,7 +52,7 @@
 		B362E2AC29EA3FE6009FED32 /* NasaSearchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NasaSearchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B362E2B029EA3FE6009FED32 /* NasaSearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaSearchUITests.swift; sourceTree = "<group>"; };
 		B362E2B229EA3FE6009FED32 /* NasaSearchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaSearchUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		B362E2BF29EA4827009FED32 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
+		B362E2BF29EA4827009FED32 /* NASAAPIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAAPIHelper.swift; sourceTree = "<group>"; };
 		B362E2C529EB6A77009FED32 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B362E2CF29ECFCB0009FED32 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,8 +107,8 @@
 			children = (
 				B362E28F29EA3FE5009FED32 /* AppDelegate.swift */,
 				B362E29129EA3FE5009FED32 /* SceneDelegate.swift */,
-				B362E29329EA3FE5009FED32 /* ViewController.swift */,
-				B362E2BF29EA4827009FED32 /* APIHelper.swift */,
+				B362E29329EA3FE5009FED32 /* SearchViewController.swift */,
+				B362E2BF29EA4827009FED32 /* NASAAPIHelper.swift */,
 				B362E29529EA3FE5009FED32 /* Main.storyboard */,
 				B362E29829EA3FE5009FED32 /* Assets.xcassets */,
 				B362E29A29EA3FE5009FED32 /* LaunchScreen.storyboard */,
@@ -149,6 +151,9 @@
 			dependencies = (
 			);
 			name = NasaSearch;
+			packageProductDependencies = (
+				B362E2CE29ECFCB0009FED32 /* Kingfisher */,
+			);
 			productName = NasaSearch;
 			productReference = B362E28C29EA3FE5009FED32 /* NasaSearch.app */;
 			productType = "com.apple.product-type.application";
@@ -221,6 +226,9 @@
 				Base,
 			);
 			mainGroup = B362E28329EA3FE5009FED32;
+			packageReferences = (
+				B362E2CD29ECFCB0009FED32 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = B362E28D29EA3FE5009FED32 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -264,10 +272,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B362E29429EA3FE5009FED32 /* ViewController.swift in Sources */,
+				B362E29429EA3FE5009FED32 /* SearchViewController.swift in Sources */,
 				B362E29029EA3FE5009FED32 /* AppDelegate.swift in Sources */,
 				B362E29229EA3FE5009FED32 /* SceneDelegate.swift in Sources */,
-				B362E2C029EA4827009FED32 /* APIHelper.swift in Sources */,
+				B362E2C029EA4827009FED32 /* NASAAPIHelper.swift in Sources */,
 				B362E2C629EB6A77009FED32 /* SearchResultCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -604,6 +612,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B362E2CD29ECFCB0009FED32 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B362E2CE29ECFCB0009FED32 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B362E2CD29ECFCB0009FED32 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B362E28429EA3FE5009FED32 /* Project object */;
 }
