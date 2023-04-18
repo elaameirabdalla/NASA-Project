@@ -16,7 +16,7 @@ final class NasaSearchTests: XCTestCase {
         let apiHelper = NASAAPIHelper()
         let successExpectation = expectation(description: "data")
         var resultData: Data = Data()
-        var results: [NASAAPIHelper.SearchResult]
+        var results: [SearchResultViewModel]
 
         // Testing endpoint call and allowing results to load with expectation
         apiHelper.getNASAImageSearchResults(search: "Stars", pageNumber: 1, mediaType: "image", pageLimit: nil) { success, data in
@@ -41,7 +41,7 @@ final class NasaSearchTests: XCTestCase {
         let apiHelper = NASAAPIHelper()
         let successExpectation = expectation(description: "data")
         var resultData: Data = Data()
-        var results: [NASAAPIHelper.SearchResult]
+        var results: [SearchResultViewModel]
 
         // Testing endpoint call and allowing results to load with expectation
         apiHelper.getNASAImageSearchResults(search: "qwrgwh", pageNumber: 1, mediaType: "image", pageLimit: nil) { success, data in

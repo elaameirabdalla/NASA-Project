@@ -19,6 +19,7 @@
 		B362E2C029EA4827009FED32 /* NASAAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B362E2BF29EA4827009FED32 /* NASAAPIHelper.swift */; };
 		B362E2C629EB6A77009FED32 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B362E2C529EB6A77009FED32 /* SearchResultCell.swift */; };
 		B362E2CF29ECFCB0009FED32 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B362E2CE29ECFCB0009FED32 /* Kingfisher */; };
+		B362E30F29EE07D0009FED32 /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B362E30E29EE07D0009FED32 /* DataModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		B362E2B229EA3FE6009FED32 /* NasaSearchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaSearchUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B362E2BF29EA4827009FED32 /* NASAAPIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAAPIHelper.swift; sourceTree = "<group>"; };
 		B362E2C529EB6A77009FED32 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
+		B362E30E29EE07D0009FED32 /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				B362E29A29EA3FE5009FED32 /* LaunchScreen.storyboard */,
 				B362E29D29EA3FE5009FED32 /* Info.plist */,
 				B362E2C529EB6A77009FED32 /* SearchResultCell.swift */,
+				B362E30E29EE07D0009FED32 /* DataModels.swift */,
 			);
 			path = NasaSearch;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				B362E29429EA3FE5009FED32 /* SearchViewController.swift in Sources */,
 				B362E29029EA3FE5009FED32 /* AppDelegate.swift in Sources */,
 				B362E29229EA3FE5009FED32 /* SceneDelegate.swift in Sources */,
+				B362E30F29EE07D0009FED32 /* DataModels.swift in Sources */,
 				B362E2C029EA4827009FED32 /* NASAAPIHelper.swift in Sources */,
 				B362E2C629EB6A77009FED32 /* SearchResultCell.swift in Sources */,
 			);

@@ -23,7 +23,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var currentPage: Int = 1
     var lastSearched: String = ""
     
-    var searchResults: [NASAAPIHelper.SearchResult] = [] {
+    var searchResults: [SearchResultViewModel] = [] {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -48,14 +48,31 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             currentPage = 1
             apiHelper.getNASAImageSearchResults(search: text, pageNumber: currentPage, mediaType: "image", pageLimit: nil) { success, data in
                 if let data = data, success {
-                    // Transform data into expected structure [SearchResults] to load into TableView
+                    // Transform data into expected structure [SearchResultViewModel] to load into TableView
                     self.searchResults = self.apiHelper.handleData(data: data)
+                    
+                    // Shows alert if no results found
+                    if self.searchResults.isEmpty {
+                        self.showAlert()
+                    }
                     // Keep track of next page to be searched as well as last searched term for pagination
                     self.lastSearched = text
+                }
+                // Presents alert on failure case (service error)
+                else if !success, data == nil {
+                    self.showAlert()
                 }
             }
         }
         return true
+    }
+    
+    func showAlert() {
+        let alertVC = UIAlertController(title: "Error", message: "No results found. Please try again or enter a different search.", preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel))
+        DispatchQueue.main.async {
+            self.present(alertVC, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,8 +88,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultCell", for: indexPath) as! SearchResultCell
         
         // Configure cell based on coorelating searchResult at the same index
-        let resultForCell = searchResults[indexPath.row]
-        cell.configureCell(href: resultForCell.href, title: resultForCell.title, description: resultForCell.description)
+        cell.searchResultViewModel = searchResults[indexPath.row]
         
         return cell
     }
